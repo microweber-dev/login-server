@@ -6,7 +6,7 @@
      <h2>Log In</h2>
 	
      <div class="sign-in-top">
-         New to Microweber?        <a href="{{ url('/register') }}" class="cbtn cbtn-alt ">Sign Up </a>
+         New to Microweber? <a href="{{ url('/register') }}" class="cbtn cbtn-alt ">Sign Up </a>
      </div>
 
 
@@ -15,16 +15,16 @@
     <div class="sign-grid">
     <div class="sign-grid-col">
 
-  <form class="form-vertical" role="form" method="POST" action="{{ url('/login') }}">
+  <form class="form-vertical" role="form" method="POST" action="{{ route('login') }}">
     {{ csrf_field() }}
     <div class="login-card mdl-card mdl-shadow--2dp">
       <div class="mdl-card__supporting-text" style="text-align: left">
 
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label{{ $errors->has('login') ? ' is-invalid' : '' }}">
-          <input class="mdl-textfield__input" type="text" id="login" name="login" value="{{ old('login') }}" autofocus />
-          <label class="mdl-textfield__label" for="login">{{ trans('label.login') }}</label>
-          @if ($errors->has('login'))
-          <span class="mdl-textfield__error">{{ $errors->first('login') }}</span>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label{{ $errors->has('email') ? ' is-invalid' : '' }}">
+          <input class="mdl-textfield__input" type="text" id="email" name="email" value="{{ old('email') }}" autofocus />
+          <label class="mdl-textfield__label" for="email">{{ trans('label.login') }}</label>
+          @if ($errors->has('email'))
+          <span class="mdl-textfield__error">{{ $errors->first('email') }}</span>
           @endif
         </div>
 
