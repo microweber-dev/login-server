@@ -41,12 +41,13 @@ trait AuthenticatesUsers
 		$is_auth = $this->guard()->attempt($this->credentials($request));
 
 		if (! $is_auth) {
+			
 			$creds = $this->credentials($request);
 
-			if (isset($creds['email']) and isset($creds['password'])) {
+			if (isset($creds['email']) && isset($creds['password']) && !empty(env('EXTERNAL_LOGIN_WHMCS_URL'))) {
 				
 				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_URL, 'https://members.microweber.bg/index.php?m=microweber_addon&function=validate_login');
+				curl_setopt($ch, CURLOPT_URL, env('EXTERNAL_LOGIN_WHMCS_URL') . '/index.php?m=microweber_addon&function=validate_login');
 				curl_setopt($ch, CURLOPT_POST, 1);
 				curl_setopt($ch, CURLOPT_POSTFIELDS,
 					http_build_query(
@@ -64,16 +65,12 @@ trait AuthenticatesUsers
 
 				if (isset($server_output['result'])) {
 					if (isset($server_output['result']) == 'success') {
-						if (isset($server_output['userid'])) {
-							if (isset($server_output['passwordhash'])) {
-								$user = \App\User::firstOrNew([
-									'email' => $creds['email']
-								]);
-								$user->password = \Hash::make($creds['password']);
-								$user->save();
-								$is_auth = $this->guard()->attempt($this->credentials($request));
-							}
-						}
+						$user = \App\User::firstOrNew([
+							'email' => $creds['email']
+						]);
+						$user->password = \Hash::make($creds['password']);
+						$user->save();
+						$is_auth = $this->guard()->attempt($this->credentials($request));
 					}
 				}
 			}
