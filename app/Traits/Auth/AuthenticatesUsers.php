@@ -39,7 +39,7 @@ trait AuthenticatesUsers
 	protected function attemptLogin(Request $request)
 	{
 		$is_auth = $this->guard()->attempt($this->credentials($request));
-
+		
 		if (! $is_auth) {
 			$creds = $this->credentials($request);
 
@@ -63,18 +63,20 @@ trait AuthenticatesUsers
 				$server_output = @json_decode($server_output, true);
 				
 				if (isset($server_output['result'])) {
-					if (isset($server_output['result']) == 'success') {
+					if ($server_output['result'] == 'success') {
+						
 						$user = \App\User::firstOrNew([
 							'email' => $creds['email']
 						]);
 						$user->password = \Hash::make($creds['password']);
 						$user->save();
+						
 						$is_auth = $this->guard()->attempt($this->credentials($request));
 					}
 				}
 			}
 		}
-
+		
 		if (! $is_auth) {
 			$is_auth = $this->guard()->attempt($this->credentials($request));
 		}

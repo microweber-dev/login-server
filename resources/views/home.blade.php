@@ -80,13 +80,10 @@
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
 
-                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://microweber.com/" style="margin-right: 10px">Go to Website</a>
-                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://members.microweber.com/clientarea.php">Go to Members Area</a>
+                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}" style="margin-right: 10px">Go to Website</a>
+                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}/clientarea.php">Go to Members Area</a>
                         </div>
                     </div>
-
-
-
 
 
 
