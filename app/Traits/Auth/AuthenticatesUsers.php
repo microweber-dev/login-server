@@ -41,7 +41,6 @@ trait AuthenticatesUsers
 		$is_auth = $this->guard()->attempt($this->credentials($request));
 
 		if (! $is_auth) {
-			
 			$creds = $this->credentials($request);
 
 			if (isset($creds['email']) && isset($creds['password']) && !empty(env('EXTERNAL_LOGIN_WHMCS_URL'))) {
@@ -52,7 +51,7 @@ trait AuthenticatesUsers
 				curl_setopt($ch, CURLOPT_POSTFIELDS,
 					http_build_query(
 						array(
-							'username' => $creds['email'],
+							'username' => $creds['email'], 
 							'password' => $creds['password']
 						)
 					)
