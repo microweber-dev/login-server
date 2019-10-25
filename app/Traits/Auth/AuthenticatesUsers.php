@@ -52,7 +52,7 @@ trait AuthenticatesUsers
 				curl_setopt($ch, CURLOPT_POSTFIELDS,
 					http_build_query(
 						array(
-							'email' => $creds['email'],
+							'username' => $creds['email'],
 							'password' => $creds['password']
 						)
 					)
@@ -62,7 +62,7 @@ trait AuthenticatesUsers
 				curl_close($ch); 
 				
 				$server_output = @json_decode($server_output, true);
-
+				
 				if (isset($server_output['result'])) {
 					if (isset($server_output['result']) == 'success') {
 						$user = \App\User::firstOrNew([
