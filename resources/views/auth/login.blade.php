@@ -10,9 +10,7 @@
             <div class="my-4"><a href="{{ url('/register') }}" class="">{{ trans('all.sign_up_now') }}</a></div>
 
             <p>{!! trans('all.login_desc') !!}</p>
-            <br><br>
-
-
+            <br>
             <form class="form-vertical" role="form" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
 

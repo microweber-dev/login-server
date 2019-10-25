@@ -76,6 +76,7 @@ body {
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
+    border: 1px solid #ccc;
 }
 
 .socials ul li:nth-child(2) {
