@@ -1,4 +1,4 @@
-@extends('layouts.skeleton')
+@extends('layouts.frontend')
 
 @section('body')
 <div class="minimal-layout mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button">

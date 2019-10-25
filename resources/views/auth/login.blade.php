@@ -1,80 +1,69 @@
 @extends('layouts.minimal')
 
 @section('content')
-<link rel="stylesheet" type="text/css" href="/css/mw.new.css">
+    <link rel="stylesheet" type="text/css" href="/css/mw.new.css">
 
-     <h2>Log In</h2>
-	
-     <div class="sign-in-top">
-         New to Microweber? <a href="{{ url('/register') }}" class="cbtn cbtn-alt ">Sign Up </a>
-     </div>
+    <div class="container text-center">
+        <div class="login-holder">
+            <h2>Log In</h2>
+
+            <div class="my-4"><a href="{{ url('/register') }}" class="">Sign up now</a></div>
+
+            <p>Въведете потребителското си име,<br/>
+                емейл и парола за да влезете в вашият акаунт</p>
+            <br><br>
 
 
-     <br><br>
-    <div class="sign-grid-holder">
-    <div class="sign-grid">
-    <div class="sign-grid-col">
+            <form class="form-vertical" role="form" method="POST" action="{{ route('login') }}">
+                {{ csrf_field() }}
 
-  <form class="form-vertical" role="form" method="POST" action="{{ route('login') }}">
-    {{ csrf_field() }}
-    <div class="login-card mdl-card mdl-shadow--2dp">
-      <div class="mdl-card__supporting-text" style="text-align: left">
+                <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
+                    <label class="control-label" for="email">{{ trans('label.login') }}</label>
+                    <input class="form-control @if ($errors->has('email')) is-invalid @endif" type="text" id="email" name="email" value="{{ old('email') }}" autofocus/>
 
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label{{ $errors->has('email') ? ' is-invalid' : '' }}">
-          <input class="mdl-textfield__input" type="text" id="email" name="email" value="{{ old('email') }}" autofocus />
-          <label class="mdl-textfield__label" for="email">{{ trans('label.login') }}</label>
-          @if ($errors->has('email'))
-          <span class="mdl-textfield__error">{{ $errors->first('email') }}</span>
-          @endif
+                    @if ($errors->has('email'))
+                        <div class="invalid-feedback">{{ $errors->first('email') }}</div>
+                    @endif
+                </div>
+
+                <div class="form-group {{ $errors->has('password') ? ' has-danger' : '' }}">
+                    <label class="control-label" for="password">{{ trans('label.password') }}</label>
+
+                    <input class="form-control @if ($errors->has('password')) is-invalid @endif" type="password" id="password" name="password" value="{{ old('password') }}"/>
+
+                    @if ($errors->has('password'))
+                        <div class="invalid-feedback">{{ $errors->first('password') }}</div>
+                    @endif
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group text-left">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="remember" name="remember" checked="">
+                                <label class="custom-control-label" for="remember">Remember Me</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 text-right">
+                        <a href="{{ url('/password/reset') }}" class="btn btn-link">Forgot Password?</a>
+                    </div>
+                </div>
+
+
+                <div class="my-4">
+                    <button type="submit" class="btn btn-primary">
+                        {{ trans('button.login') }}
+                    </button>
+                </div>
+            </form>
         </div>
 
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label{{ $errors->has('password') ? ' is-invalid' : '' }}">
-          <input class="mdl-textfield__input" type="password" id="password" name="password" value="{{ old('password') }}" />
-          <label class="mdl-textfield__label" for="password">{{ trans('label.password') }}</label>
-          @if ($errors->has('password'))
-          <span class="mdl-textfield__error">{{ $errors->first('password') }}</span>
-          @endif
+
+        <div class="socials" style="margin-top:60px;">
+            <p>Влез със социалният си профил</p>
+            @include('auth.social')
         </div>
-
-        <?php /*<div class="mdl-field">
-          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="remember">
-            <input id="remember" type="checkbox" name="remember" class="mdl-switch__input" checked>
-            <span class="mdl-switch__label">Remember Me</span>
-          </label>
-        </div>*/ ?>
-
-        <label class="check pull-left" style="display: inline-block">
-            <input id="remember" type="checkbox" name="remember" class="mdl-switch__input" checked>
-            <i></i>
-             <span class="check-label">Remember Me</span>
-        </label>
-
-        <a href="{{ url('/password/reset') }}" class="xlink pull-right">
-          Forgot Password?
-        </a>
-
-      </div>
-      <div class="mdl-card__actions" style="text-align: left">
-        <?php /*<button type="submit" class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-          {{ trans('button.login') }}
-        </button>*/ ?>
-        <button type="submit" class="cbtn cbtn-submit">
-          {{ trans('button.login') }}
-        </button>
-
-      </div>
     </div>
-  </form>
- </div>
- <div class="sign-grid-col sign-grid-col-right" >
-<div class="idp-list-small">
-    @include('auth.social')
-</div>
-</div>
-</div>
-</div>
-
-<?php /*<a href="{{ url('/register') }}" class="mdl-button mdl-js-button mdl-js-ripple-effect">
-  New user? <span class="mdl-button--accent">Create account</span>
-  </a>*/ ?>
-  @endsection
+@endsection
