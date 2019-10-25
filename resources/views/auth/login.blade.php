@@ -5,12 +5,11 @@
 
     <div class="container text-center">
         <div class="login-holder">
-            <h2>Log In</h2>
+            <h2>{{ trans('all.login_title') }}</h2>
 
-            <div class="my-4"><a href="{{ url('/register') }}" class="">Sign up now</a></div>
+            <div class="my-4"><a href="{{ url('/register') }}" class="">{{ trans('all.sign_up_now') }}</a></div>
 
-            <p>Въведете потребителското си име,<br/>
-                емейл и парола за да влезете в вашият акаунт</p>
+            <p>{!! trans('all.login_desc') !!}</p>
             <br><br>
 
 
@@ -41,13 +40,13 @@
                         <div class="form-group text-left">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="remember" name="remember" checked="">
-                                <label class="custom-control-label" for="remember">Remember Me</label>
+                                <label class="custom-control-label" for="remember">{{ trans('all.remember_me') }}</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-6 text-right">
-                        <a href="{{ url('/password/reset') }}" class="btn btn-link">Forgot Password?</a>
+                        <a href="{{ url('/password/reset') }}" class="btn btn-link">{{ trans('all.forgot_password') }}</a>
                     </div>
                 </div>
 
@@ -62,7 +61,7 @@
 
 
         <div class="socials" style="margin-top:60px;">
-            <p>Влез със социалният си профил</p>
+            <p>{{ trans('all.connect_with_social') }}</p>
             @include('auth.social')
         </div>
     </div>

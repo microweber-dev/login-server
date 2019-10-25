@@ -7,9 +7,9 @@
     <div class="container text-center">
         <div class="login-holder">
 
-            <h2>Sign Up</h2>
+            <h2>{{ trans('all.sign_up') }}</h2>
 
-            <div class="my-4">Вече имате профил? <a href="{{ url('/login') }}">Вход</a></div>
+            <div class="my-4">{{ trans('all.already_have_account') }} <a href="{{ url('/login') }}">{{ trans('all.login') }}</a></div>
 
             <form class="form-vertical" role="form" method="POST" action="{{ url('/register') }}">
                 {{ csrf_field() }}
@@ -51,14 +51,14 @@
                 </div>
 
                 <div class="my-4">
-                    <button type="submit" class="btn btn-primary">Sign up</button>
+                    <button type="submit" class="btn btn-primary">{{ trans('all.sign_up') }}</button>
                 </div>
 
             </form>
         </div>
 
         <div class="socials" style="margin-top:60px;">
-            <p>Регистрирай се със социалният си профил</p>
+            <p>{{ trans('all.connect_with_social_2') }}</p>
             @include('auth.social')
         </div>
     </div>

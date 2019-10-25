@@ -12,7 +12,7 @@
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
                 {{ csrf_field() }}
 
-                <h2>Reset password</h2>
+                <h2>{{ trans('all.reset_password') }}</h2>
 
                 <div class="my-4">&nbsp;</div>
 
