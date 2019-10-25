@@ -44,35 +44,33 @@ trait AuthenticatesUsers
 			$creds = $this->credentials($request);
 
 			if (isset($creds['email']) and isset($creds['password'])) {
-				// http://members.microweber.com/_sync/check_pass_mwlogin/?email=peter@microweber.com&password=1234
+				
 				$ch = curl_init();
-
-				curl_setopt($ch, CURLOPT_URL, "https://members.microweber.com/_sync/check_pass_mwlogin/");
+				curl_setopt($ch, CURLOPT_URL, 'https://members.microweber.bg/index.php?m=microweber_addon&function=validate_login');
 				curl_setopt($ch, CURLOPT_POST, 1);
-
-				curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($creds));
-
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
+				curl_setopt($ch, CURLOPT_POSTFIELDS,
+					http_build_query(
+						array(
+							'email' => $creds['email'],
+							'password' => $creds['password']
+						)
+					)
+				);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 				$server_output = curl_exec($ch);
-
-				curl_close($ch);
-
+				curl_close($ch); 
+				
 				$server_output = @json_decode($server_output, true);
-				// dd($server_output);
 
 				if (isset($server_output['result'])) {
 					if (isset($server_output['result']) == 'success') {
 						if (isset($server_output['userid'])) {
 							if (isset($server_output['passwordhash'])) {
-								// $try_to_find_user = \User::firstOrCreate(['email' => $creds['email']]);
 								$user = \App\User::firstOrNew([
 									'email' => $creds['email']
 								]);
-								// $user->name= $data['full_name'];
 								$user->password = \Hash::make($creds['password']);
 								$user->save();
-
 								$is_auth = $this->guard()->attempt($this->credentials($request));
 							}
 						}
@@ -101,28 +99,5 @@ trait AuthenticatesUsers
 		$redir = $is_auth ?: redirect()->intended($this->redirectPath());
 
 		return $redir;
-	}
-
-	//
-	// protected function sendLoginResponse(Request $request)
-	// {
-	// $request->session()->regenerate();
-	//
-	// $this->clearLoginAttempts($request);
-	//
-	// //http://members.microweber.com/_sync/check_pass_mwlogin/?email=peter@microweber.com&password=1234
-	//
-	// return $this->authenticated($request, $this->guard()->user())
-	// ?: redirect()->intended($this->redirectPath());
-	// }
-
-	/**
-	 * Get the login username to be used by the controller.
-	 *
-	 * @return string
-	 */
-	public function username()
-	{
-		return 'login';
 	}
 }
