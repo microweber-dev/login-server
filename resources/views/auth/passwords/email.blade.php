@@ -25,6 +25,10 @@
                     @endif
                 </div>
 
+                <div class="form-group" style="height: 140px;">
+                    <div style="width:350px;float:left;">@captcha</div>
+                    <input type="text" id="captcha" name="captcha" class="form-control @if ($errors->has('captcha')) is-invalid @endif" style="max-width: 250px;height:55px;float:left;" autocomplete="off">
+                 </div>
 
                 <div class="my-4">
                     <button type="submit" class="btn btn-primary">{{ trans('button.send_password_reset') }}</button>
