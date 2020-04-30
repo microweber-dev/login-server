@@ -7,6 +7,12 @@
     @endif
     <link rel="stylesheet" type="text/css" href="/css/mw.new.css">
 
+    <style>
+        .is-invalid {
+            border-color: red !important;
+        }
+    </style>
+
     <div class="container text-center">
         <div class="login-holder">
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
@@ -28,6 +34,9 @@
                 <div class="form-group" style="height: 140px;">
                     <div style="width:350px;float:left;">@captcha</div>
                     <input type="text" id="captcha" name="captcha" class="form-control @if ($errors->has('captcha')) is-invalid @endif" style="max-width: 250px;height:55px;float:left;" autocomplete="off">
+                    @if ($errors->has('captcha'))
+                        <div class="invalid-feedback">{{ $errors->first('captcha') }}</div>
+                    @endif
                  </div>
 
                 <div class="my-4">
