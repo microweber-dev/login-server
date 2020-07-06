@@ -13,16 +13,16 @@ return [
     |
     */
 
-    'login_desc' => 'Въведете потребителското си име,<br/>емейл и парола за да влезете в вашият акаунт',
+    'login_desc' => 'Fill your username <br/> and password to login in your account.',
     'login_title' => 'Log In',
-    'login' => 'Вход',
+    'login' => 'Login',
     'sign_up_now' => 'Sign up now',
     'sign_up' => 'Sign Up',
     'remember_me' => 'Remember Me',
     'forgot_password' => 'Forgot Password ?',
-    'connect_with_social' => 'Влез със социалният си профил',
-    'connect_with_social_2' => 'Регистрирай се със социалният си профил',
+    'connect_with_social' => 'Sign in with your social network profile',
+    'connect_with_social_2' => 'Sign up with your social network profile',
     'reset_password' => 'Reset password',
-    'already_have_account' => 'Вече имате профил?',
+    'already_have_account' => 'Allready have an account?',
 
 ];
