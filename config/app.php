@@ -79,7 +79,7 @@ return [
     |
     */
 
-    'locale' => 'bg',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -176,7 +176,7 @@ return [
 		App\Providers\EventServiceProvider::class,
 		App\Providers\RouteServiceProvider::class,
     	App\Providers\AuthvServiceProvider::class
-    	
+
 	],
 
     /*
