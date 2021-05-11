@@ -129,7 +129,7 @@ return [
     | You can specify an array or string.
     |
     */
-    'background' => 'ffffff',
+    'background' => str_replace('#','',env('UI_WHITE_COLOR', 'FFFFFF')),
 
     /*
     |--------------------------------------------------------------------------
@@ -138,7 +138,7 @@ return [
     | You can specify an array or string.
     |
     */
-    'colors' => '2626ff',
+    'colors' => str_replace('#','',env('UI_PRIMARY_COLOR', '2626ff')),
 
     /*
     |--------------------------------------------------------------------------

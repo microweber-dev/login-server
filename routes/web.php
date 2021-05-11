@@ -42,7 +42,7 @@ Route::get('logout', function (\Request $request) {
 	\Auth::logout();
 	\Session::flush();
 	\Cookie::forget('mw_login_session');
-	
+
 	if (\Request::ajax()) {
 		return true;
 	}
@@ -56,11 +56,11 @@ Route::get('sssapi/user', function (\Request $request) {
 
 
 Route::any('avatar/{any}', function ($first, $rest = '') {
-	
+
 	if (! $first) {
 		return;
 	}
-	
+
 	$remote_avatar = false;
 
 	$first = str_replace('..', '', $first);

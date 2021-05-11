@@ -50,6 +50,40 @@
 </head>
 <body>
 @yield('body')
+
+<style>
+body {
+    background: {{ config('ui.white_color') }} !important;
+}
+a {
+    color: {{ config('ui.primary_color') }} !important;
+}
+a:hover {
+    color: {{ config('ui.primary_color') }} !important;
+}
+.btn.btn-primary {
+    background: {{ config('ui.primary_color') }} !important;
+    border:1px solid {{ config('ui.primary_color') }} !important;
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: {{ config('ui.primary_color') }};
+    background-color: {{ config('ui.primary_color') }};
+}
+.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+    background-color: {{ config('ui.white_color') }};
+    border-color: {{ config('ui.white_color') }};
+}
+.custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 .2rem {{ config('ui.primary_color') }};
+}
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 .2rem #cacaca70 !important;
+}
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem #cacaca70 !important;
+}
+</style>
+
 <snackbar v-ref:abc></snackbar>
 <script src="/js/login.js"></script>
 </body>

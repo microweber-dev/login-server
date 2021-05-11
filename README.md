@@ -37,5 +37,6 @@ You can read more here
 
 https://laravel.com/docs/7.x/passport
 
-
+## Redirect
+The redirect urls must be the same on database and on the client
 
