@@ -6,7 +6,7 @@
 
     <div class="container text-center">
         <div class="login-holder">
-            <h2>{{ trans('all.login_title') }} </h2> 
+            <h2>{{ trans('all.login_title') }} </h2>
 
             <div class="my-4"><a href="{{ url('/register') }}" class="">{{ trans('all.sign_up_now') }}</a></div>
 
