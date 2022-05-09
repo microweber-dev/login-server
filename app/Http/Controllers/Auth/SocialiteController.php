@@ -70,6 +70,10 @@ class SocialiteController extends Controller
                     $user = App\User::create($data);
                     $existingUser = false;
                 }
+                
+                $user->password = null;
+                $user->save();
+                
                 $ouser->user_id = $user->id;
                 $ouser->save();
                 Auth::login($user, true);
