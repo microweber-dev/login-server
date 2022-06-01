@@ -2,9 +2,7 @@
 
 <!-- Main Content -->
 @section('content')
-    @if (session('status'))
-        <show-snackbar message="{{ session('status') }}" timeout="10000"></show-snackbar>
-    @endif
+
     <link rel="stylesheet" type="text/css" href="/css/mw.new.css">
 
     <style>
@@ -14,6 +12,7 @@
     </style>
 
     <div class="container text-center">
+
         <div class="login-holder">
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
                 {{ csrf_field() }}
@@ -21,6 +20,10 @@
                 <h2>{{ trans('all.reset_password') }}</h2>
 
                 <div class="my-4">&nbsp;</div>
+
+                @if (session('status'))
+                    <div class="alert alert-info">{{ session('status') }}</div>
+                @endif
 
                 <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
                     <label class="control-label" for="email">{{ trans('label.email') }}</label>
