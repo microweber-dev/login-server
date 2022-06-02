@@ -18,8 +18,6 @@ class SocialiteController extends Controller
      */
     public function redirectTo(Request $request, $providerName)
     {
-
-
         return Socialite::driver($providerName)->redirect();
     }
 
@@ -86,8 +84,6 @@ class SocialiteController extends Controller
 
     public function redirectAfterLogin($request)
     {
-
-
         // tyka bug s login redirect  pecata
 
         $sess = $request->session()->all();

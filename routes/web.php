@@ -27,6 +27,8 @@ Passport::routes();
 Passport::tokensExpireIn(Carbon::now()->addDays(15));
 Passport::enableImplicitGrant();
 
+Route::get('/oauth/ask-to-authorize', 'Auth\AskToAuthorizeController@index');
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/me', function () {

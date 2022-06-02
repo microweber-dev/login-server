@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class HomeController extends Controller
 {
@@ -13,8 +14,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-
-
         $this->middleware('auth');
     }
 
@@ -26,6 +25,10 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
+        $afterLogin = base64_decode(Cookie::get('after_login', false));
+        if ($afterLogin) {
+            return redirect($afterLogin);
+        }
 
         //  dd($request->session()->all());
         if ($request->session()->has('return_url')) {
