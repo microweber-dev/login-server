@@ -1,7 +1,6 @@
 @extends('layouts.minimal')
 
 @section('content')
-    <link rel="stylesheet" type="text/css" href="/css/mw.new.css">
 
     <div class="container text-center">
         <div class="login-holder">

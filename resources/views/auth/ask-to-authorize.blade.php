@@ -2,8 +2,6 @@
 
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="/css/mw.new.css">
-
     <style>
         .select-account {
 
