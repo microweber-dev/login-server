@@ -45,7 +45,7 @@
                 </div>
 
                 <div style="display: none;">
-                    {!! Authv::immigrationFields() !!}
+                    {!! \App\Facades\Authv::immigrationFields() !!}
                 </div>
 
                 <div class="my-4">
