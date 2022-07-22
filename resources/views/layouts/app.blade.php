@@ -1,47 +1,44 @@
-@extends('layouts.skeleton')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('body')
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button">
-  <header class="brand-header mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      @include('widgets.logo')
-      <!-- Add spacer, to align navigation to the right in desktop -->
-      <div class="mdl-layout-spacer"></div>
-      <div class="brand-navigation-container">
-        <nav class="brand-navigation mdl-navigation">
-          @if (Auth::guest())
-          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{{ url('/login') }}">Login</a>
-          <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{{ url('/register') }}">Register</a>
-          @endif
-        </nav>
-      </div>
-      @if (Auth::user())
-      <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="more-button">
-        {{ Auth::user()->name }}
-      </button>
-      <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
-        <li class="mdl-menu__item">
-          <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-            Logout
-          </a>
-          <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-          </form>
-        </li>
-      </ul>
-      @endif
-    </div>
-  </header>
-  <div class="mdl-layout__content">
-    <div class="mdl-grid">
-      <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-      <div class="page-content mdl-cell mdl-cell--10-col">
-        @yield('content')
-      </div>
-    </div>
-  </div>
-</div>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+        <!-- Styles -->
+        @livewireStyles
 
-@endsection
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased">
+        <x-jet-banner />
+
+        <div class="min-h-screen bg-gray-100">
+            @livewire('navigation-menu')
+
+            <!-- Page Heading -->
+            @if (isset($header))
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
+
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
+        </div>
+
+        @stack('modals')
+
+        @livewireScripts
+    </body>
+</html>

@@ -1,65 +1,48 @@
-@extends('layouts.minimal')
+<x-guest-layout>
+    <x-jet-authentication-card>
+        <x-slot name="logo">
+            <x-jet-authentication-card-logo />
+        </x-slot>
 
-@section('content')
+        <x-jet-validation-errors class="mb-4" />
 
-    <div class="container text-center">
-        <div class="login-holder">
-            <h2>{{ trans('all.login_title') }} </h2>
+        @if (session('status'))
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('status') }}
+            </div>
+        @endif
 
-            <div class="my-4"><a href="{{ url('/register') }}" class="">{{ trans('all.sign_up_now') }}</a></div>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
-            <p>{!! trans('all.login_desc') !!}</p>
-            <br>
-            <form class="form-vertical" role="form" method="POST" action="{{ route('login') }}">
-                {{ csrf_field() }}
+            <div>
+                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            </div>
 
-                <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
-                    <label class="control-label" for="email">{{ trans('label.login') }}</label>
-                    <input class="form-control @if ($errors->has('email')) is-invalid @endif" type="text" id="email" name="email" value="{{ old('email') }}" autofocus/>
+            <div class="mt-4">
+                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+            </div>
 
-                    @if ($errors->has('email'))
-                        <div class="invalid-feedback">{{ $errors->first('email') }}</div>
-                    @endif
-                </div>
+            <div class="block mt-4">
+                <label for="remember_me" class="flex items-center">
+                    <x-jet-checkbox id="remember_me" name="remember" />
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                </label>
+            </div>
 
-                <div class="form-group {{ $errors->has('password') ? ' has-danger' : '' }}">
-                    <label class="control-label" for="password">{{ trans('label.password') }}</label>
+            <div class="flex items-center justify-end mt-4">
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                @endif
 
-                    <input class="form-control @if ($errors->has('password')) is-invalid @endif" type="password" id="password" name="password" value="{{ old('password') }}"/>
-
-                    @if ($errors->has('password'))
-                        <div class="invalid-feedback">{{ $errors->first('password') }}</div>
-                    @endif
-                </div>
-
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-group text-left">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="remember" name="remember" checked="">
-                                <label class="custom-control-label" for="remember">{{ trans('all.remember_me') }}</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-6 text-right">
-                        <a href="{{ url('/password/reset') }}" class="btn btn-link">{{ trans('all.forgot_password') }}</a>
-                    </div>
-                </div>
-
-
-                <div class="my-4">
-                    <button type="submit" class="btn btn-primary">
-                        {{ trans('button.login') }}
-                    </button>
-                </div>
-            </form>
-        </div>
-
-
-        <div class="socials" style="margin-top:60px;">
-            <p>{{ trans('all.connect_with_social') }}</p>
-            @include('auth.social')
-        </div>
-    </div>
-@endsection
+                <x-jet-button class="ml-4">
+                    {{ __('Log in') }}
+                </x-jet-button>
+            </div>
+        </form>
+    </x-jet-authentication-card>
+</x-guest-layout>

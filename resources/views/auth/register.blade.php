@@ -1,63 +1,60 @@
-@extends('layouts.minimal')
+<x-guest-layout>
+    <x-jet-authentication-card>
+        <x-slot name="logo">
+            <x-jet-authentication-card-logo />
+        </x-slot>
 
-@section('content')
+        <x-jet-validation-errors class="mb-4" />
 
-    <div class="container text-center">
-        <div class="login-holder">
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-            <h2>{{ trans('all.sign_up') }}</h2>
+            <div>
+                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
 
-            <div class="my-4">{{ trans('all.already_have_account') }} <a href="{{ url('/login') }}">{{ trans('all.login') }}</a></div>
+            <div class="mt-4">
+                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
 
-            <form class="form-vertical" role="form" method="POST" action="{{ url('/register') }}">
-                {{ csrf_field() }}
+            <div class="mt-4">
+                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+            </div>
 
-                <div class="form-group {{ $errors->has('name') ? ' has-danger' : '' }}">
-                    <label class="control-label" for="name">{{ trans('label.name') }}</label>
-                    <input class="form-control @if ($errors->has('name')) is-invalid @endif" type="text" id="name" name="name" value="{{ old('name') }}" autofocus/>
-                    @if ($errors->has('name'))
-                        <div class="invalid-feedback">{{ $errors->first('name') }}</div>
-                    @endif
+            <div class="mt-4">
+                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
+
+            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                <div class="mt-4">
+                    <x-jet-label for="terms">
+                        <div class="flex items-center">
+                            <x-jet-checkbox name="terms" id="terms"/>
+
+                            <div class="ml-2">
+                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                ]) !!}
+                            </div>
+                        </div>
+                    </x-jet-label>
                 </div>
+            @endif
 
-                <div class="form-group {{ $errors->has('username') ? ' has-danger' : '' }}">
-                    <label class="control-label" for="username">{{ trans('label.username') }}</label>
-                    <input class="form-control @if ($errors->has('username')) is-invalid @endif" type="text" id="username" name="username" value="{{ old('username') }}"/>
-                    @if ($errors->has('username'))
-                        <div class="invalid-feedback">{{ $errors->first('username') }}</div>
-                    @endif
-                </div>
+            <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                    {{ __('Already registered?') }}
+                </a>
 
-                <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
-                    <label class="control-label" for="email">{{ trans('label.email') }}</label>
-                    <input class="form-control @if ($errors->has('email')) is-invalid @endif" type="email" id="email" name="email" value="{{ old('email') }}"/>
-                    @if ($errors->has('email'))
-                        <div class="invalid-feedback">{{ $errors->first('email') }}</div>
-                    @endif
-                </div>
-
-                <div class="form-group {{ $errors->has('password') ? ' has-danger' : '' }}">
-                    <label class="control-label" for="password">{{ trans('label.password') }}</label>
-                    <input class="form-control @if ($errors->has('password')) is-invalid @endif" type="password" id="password" name="password" value="{{ old('password') }}"/>
-                    @if ($errors->has('password'))
-                        <div class="invalid-feedback">{{ $errors->first('password') }}</div>
-                    @endif
-                </div>
-
-                <div style="display: none;">
-                    {!! \App\Facades\Authv::immigrationFields() !!}
-                </div>
-
-                <div class="my-4">
-                    <button type="submit" class="btn btn-primary">{{ trans('all.sign_up') }}</button>
-                </div>
-
-            </form>
-        </div>
-
-        <div class="socials" style="margin-top:60px;">
-            <p>{{ trans('all.connect_with_social_2') }}</p>
-            @include('auth.social')
-        </div>
-    </div>
-@endsection
+                <x-jet-button class="ml-4">
+                    {{ __('Register') }}
+                </x-jet-button>
+            </div>
+        </form>
+    </x-jet-authentication-card>
+</x-guest-layout>
