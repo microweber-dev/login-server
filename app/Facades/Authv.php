@@ -27,15 +27,15 @@ class Authv extends Facade
      */
     public static function routes()
     {
-        Route::get('/users/activate-account/{token}', 'Auth\EmailConfirmationController@showConfirmationForm')->name('confirm-email');
+    /*    Route::get('/users/activate-account/{token}', 'Auth\EmailConfirmationController@showConfirmationForm')->name('confirm-email');
         Route::post('/users/activate-account', 'Auth\EmailConfirmationController@confirm');
 
-        Route::get('/users/accept-invitation/{token}', 'Auth\InvitationController@redeem')->name('redeem');
+        Route::get('/users/accept-invitation/{token}', 'Auth\InvitationController@redeem')->name('redeem');*/
 
-        self::socialiteRoutes();
+      //   self::socialiteRoutes();
     }
 
-    protected static function socialiteRoutes()
+  /*  protected static function socialiteRoutes()
     {
         Route::get('/profile/complete', 'Profile\CompletionController@showForm')->name('complete-profile');
         Route::post('/profile/complete', 'Profile\CompletionController@complete');
@@ -44,7 +44,7 @@ class Authv extends Facade
         Route::get('/oauth2/{provider}/callback', 'Auth\SocialiteController@handleCallback');
 
         Route::get('/sso/discourse', 'SSO\DiscourseController@get')->name('discourse-sso');
-    }
+    }*/
 
     public static function immigrationFields()
     {
