@@ -21,7 +21,7 @@ Route::get('/', function (Request $request) {
     return redirect('/home');
 });
 
-// \App\Facades\Authv::routes();
+\App\Facades\Authv::routes();
 
 //\Laravel\Passport\Passport::routes();
 // \Laravel\Passport\Passport::tokensExpireIn(Carbon::now()->addDays(15));

@@ -18,7 +18,7 @@ class SocialiteController extends Controller
      */
     public function redirectTo(Request $request, $providerName)
     {
-
+        dd($request->all());
 
         return Socialite::driver($providerName)->redirect();
     }
@@ -70,10 +70,10 @@ class SocialiteController extends Controller
                     $user = App\User::create($data);
                     $existingUser = false;
                 }
-                
+
                 $user->password = null;
                 $user->save();
-                
+
                 $ouser->user_id = $user->id;
                 $ouser->save();
                 Auth::login($user, true);

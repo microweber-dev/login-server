@@ -32,21 +32,21 @@ class Authv extends Facade
 
         Route::get('/users/accept-invitation/{token}', 'Auth\InvitationController@redeem')->name('redeem');*/
 
-      //   self::socialiteRoutes();
+         self::socialiteRoutes();
     }
 
-  /*  protected static function socialiteRoutes()
+    protected static function socialiteRoutes()
     {
-        Route::get('/profile/complete', 'Profile\CompletionController@showForm')->name('complete-profile');
-        Route::post('/profile/complete', 'Profile\CompletionController@complete');
+    //    Route::get('/profile/complete', 'Profile\CompletionController@showForm')->name('complete-profile');
+       // Route::post('/profile/complete', 'Profile\CompletionController@complete');
 
-        Route::get('/oauth2/{provider}', 'Auth\SocialiteController@redirectTo');
-        Route::get('/oauth2/{provider}/callback', 'Auth\SocialiteController@handleCallback');
+        //Route::get('/oauth/{provider}', 'App\Http\Controllers\Auth\SocialiteController@redirectTo');
+        // Route::get('/oauth/{provider}/callback', 'App\Http\Controllers\Auth\SocialiteController@handleCallback');
 
-        Route::get('/sso/discourse', 'SSO\DiscourseController@get')->name('discourse-sso');
-    }*/
+       // Route::get('/sso/discourse', 'SSO\DiscourseController@get')->name('discourse-sso');
+    }
 
-    public static function immigrationFields()
+   /* public static function immigrationFields()
     {
         $html = '<div id="immigration" class="hidden">'."\r\n".
               '<input name="password_confirmation" type="text" value="" id="password-confirm" />'."\r\n".
@@ -79,5 +79,5 @@ class Authv extends Facade
             break;
         }
         });
-    }
+    }*/
 }
