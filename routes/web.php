@@ -29,15 +29,9 @@ Route::get('/', function (Request $request) {
 //Passport::enableImplicitGrant();
 
 
-
-
-
-
-
-
 Route::get('/oauth/ask-to-authorize', 'Auth\AskToAuthorizeController@index');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', '\App\Http\Controllers\HomeController@index');
 
 Route::get('/me', function () {
 	return \Auth::guard('api')->user();
