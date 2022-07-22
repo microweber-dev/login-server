@@ -14,7 +14,7 @@ class AuthvServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Authv::immigrationValidator();
+       //  Authv::immigrationValidator();
     }
 
     /**
