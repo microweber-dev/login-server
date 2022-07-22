@@ -1,109 +1,45 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading"></div>
-<script>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Home') }}
+        </h2>
+    </x-slot>
 
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="padding:20px">
 
+            <h4>
+                Welcome {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}},
+                <br>
 
-    if (typeof(window.opener) !== "undefined" && this.name == 'SocialLoginWindow' ){
-     //   window.opener.location.href='https://members.microweber.com/login_redirect.php?quiet=1&return_to=https://microweber.com/';
+                You are logged in!
+                <br />
+                <br />
 
+            </h4>
 
-//        window.onbeforeunload = function(){
-//            window.location.href = window.opener.location.href;
-//        }
-        window.opener.location.reload();
-        this.close();
-      //  self.close();
+            <a class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition mt-2 mr-2" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}" style="margin-right: 10px">Go to Website</a>
+            <a class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition mt-2 mr-2" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}/clientarea.php">Go to Members Area</a>
 
-    } else {
-      //  window.location.href='https://members.microweber.com/login_redirect.php?quiet=1&return_to=https://microweber.com/';
+                <br />
+                <br />
 
-    }
+            <hr>
 
+            <a href="" class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition mt-2 mr-2"
+               onclick="event.preventDefault(); document.getElementById('logout-form-main').submit();">
+                Logout
+            </a>
 
-</script>
-
-                <div id="app">
-                <passport-clients></passport-clients>
-                <passport-authorized-clients></passport-authorized-clients>
-                <passport-personal-access-tokens></passport-personal-access-tokens>
-                    </div>
-                <div class="panel-body">
-
-
-                    <style>
-                        .login-card-event.mdl-card {
-                            width: auto;
-                            height: auto;
-                            background: #777777;
-                        }
-                        .login-card-event > .mdl-card__actions {
-                            border-color: rgba(255, 255, 255, 0.2);
-                        }
-                        .login-card-event > .mdl-card__title {
-                            align-items: flex-start;
-                        }
-                        .login-card-event > .mdl-card__title > h4 {
-                            margin-top: 0;
-                        }
-                        .login-card-event > .mdl-card__actions {
-                            display: flex;
-                            box-sizing:border-box;
-                            align-items: center;
-                        }
-                        .login-card-event > .mdl-card__actions > .material-icons {
-                            padding-right: 10px;
-                        }
-                        .login-card-event > .mdl-card__title,
-                        .login-card-event > .mdl-card__actions,
-                        .login-card-event > .mdl-card__actions > .mdl-button {
-                            color: white;
-                        }
-                    </style>
-
-                    <div class="login-card-event mdl-card mdl-shadow--2dp">
-                        <div class="mdl-card__title mdl-card--expand">
-                            <h4>
-                                Welcome {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}},
-                                <br>
-
-                                You are logged in!
-                                <br>
-
-                            </h4>
-                        </div>
-                        <div class="mdl-card__actions mdl-card--border">
-
-                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}" style="margin-right: 10px">Go to Website</a>
-                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}/clientarea.php">Go to Members Area</a>
-                        </div>
-                    </div>
-
-
-
-                    <hr>
-
-                    <a href="" class="mdl-button mdl-js-button mdl-button--raised" onclick="event.preventDefault(); document.getElementById('logout-form-main').submit();">
-                        Logout
-                    </a>
-                    <form id="logout-form-main" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-
-
-
-                </div>
+            <form id="logout-form-main" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
 
 
             </div>
         </div>
     </div>
-</div>
 
-@endsection
+</x-app-layout>

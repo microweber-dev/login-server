@@ -21,13 +21,11 @@ Route::get('/', function (Request $request) {
     return redirect('/home');
 });
 
-// Auth::routes();
 \App\Facades\Authv::routes();
 
-//Passport::routes();
-//Passport::tokensExpireIn(Carbon::now()->addDays(15));
-//Passport::enableImplicitGrant();
-
+\Laravel\Passport\Passport::routes();
+// \Laravel\Passport\Passport::tokensExpireIn(Carbon::now()->addDays(15));
+\Laravel\Passport\Passport::enableImplicitGrant();
 
 Route::get('/oauth/ask-to-authorize', 'Auth\AskToAuthorizeController@index');
 
