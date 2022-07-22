@@ -20,12 +20,19 @@ Route::get('/', function (Request $request) {
 	}
 });
 
-Auth::routes();
-Authv::routes();
+//Auth::routes();
+//Authv::routes();
 
-Passport::routes();
-Passport::tokensExpireIn(Carbon::now()->addDays(15));
-Passport::enableImplicitGrant();
+//Passport::routes();
+//Passport::tokensExpireIn(Carbon::now()->addDays(15));
+//Passport::enableImplicitGrant();
+
+
+
+
+
+
+
 
 Route::get('/oauth/ask-to-authorize', 'Auth\AskToAuthorizeController@index');
 
