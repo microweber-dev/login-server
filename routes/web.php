@@ -14,10 +14,11 @@ use Carbon\Carbon;
 
 Route::get('/', function (Request $request) {
 	if (Auth::check()) {
-		return redirect('/home');
+        //return redirect('/home');
 	} else {
-		return redirect('/login');
+	//	return redirect('/login');
 	}
+    return redirect('/home');
 });
 
 //Auth::routes();
