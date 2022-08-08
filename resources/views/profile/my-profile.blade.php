@@ -12,9 +12,7 @@
                     <div class="card-body">
 
                         <h4>
-                            Welcome {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}},
-                            you are in login portal.
-                            <br>
+                            Welcome {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}!
                         </h4>
 
                     </div>
