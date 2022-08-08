@@ -15,9 +15,9 @@
             </div>
             <div class="col-md-5">
                 <nav class="my-2 my-md-0 mr-md-3 pt-3">
-                    <a class="p-2 text-dark" href="#">Home</a>
-                    <a class="p-2 text-dark" href="#">My Websites</a>
-                    <a class="p-2 text-dark" href="#">Members Area</a>
+                    <a class="p-2 text-dark" href="index.php">Home</a>
+                    <a class="p-2 text-dark" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}">My Websites</a>
+                    <a class="p-2 text-dark" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}/clientarea.php">Members Area</a>
                 </nav>
             </div>
 
@@ -37,8 +37,13 @@
                     </button>
                     <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
                         <li class="mdl-menu__item">
-                            <a href=""
-                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <a href="/my-profile">
+                                My Profile
+                            </a>
+                            <a href="/change-password">
+                                Change Password
+                            </a>
+                            <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 Logout
                             </a>
                             <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
