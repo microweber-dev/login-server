@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="//code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script defer src="//code.getmdl.io/1.3.0/material.min.js"></script>
-    <!-- CSRF Token -->
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+    <!-- CSRF Token -->
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;

@@ -67,21 +67,17 @@
                         }
                     </style>
 
-                    <div class="login-card-event mdl-card mdl-shadow--2dp">
-                        <div class="mdl-card__title mdl-card--expand">
+                    <div class="">
+                        <div class="mb-5">
                             <h4>
                                 Welcome {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}},
+                                you are in login portal.
                                 <br>
-
-                                You are logged in!
-                                <br>
-
                             </h4>
                         </div>
-                        <div class="mdl-card__actions mdl-card--border">
-
-                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}" style="margin-right: 10px">Go to Website</a>
-                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}/clientarea.php">Go to Members Area</a>
+                        <div class="btn-group mb-3">
+                            <a class="btn btn-outline-success" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}" style="margin-right: 10px">Go to Website</a>
+                            <a class="btn btn-outline-primary" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}/clientarea.php">Go to Members Area</a>
                         </div>
                     </div>
 
@@ -89,13 +85,14 @@
 
                     <hr>
 
-                    <a href="" class="mdl-button mdl-js-button mdl-button--raised" onclick="event.preventDefault(); document.getElementById('logout-form-main').submit();">
-                        Logout
-                    </a>
-                    <form id="logout-form-main" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-
+                    <div class="mt-3">
+                        <a href="" class="btn btn-outline-danger" onclick="event.preventDefault(); document.getElementById('logout-form-main').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form-main" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
 
 
                 </div>

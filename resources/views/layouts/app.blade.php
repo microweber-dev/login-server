@@ -1,6 +1,40 @@
 @extends('layouts.skeleton')
 
 @section('body')
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal"
+        <a href="{{ url('/') }}">
+          <span class="brand-title" title="{{ config('app.name', 'Authv') }}">
+            <img style="width: 50px" src="{{ config('authv.logo_url.desktop') }}"/> MWLogin.com - Microweber Login Server
+          </span>
+        </a>
+    </h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="#">Home</a>
+        <a class="p-2 text-dark" href="#">My Websites</a>
+        <a class="p-2 text-dark" href="#">Members Area</a>
+    </nav>
+    <!-- Example single danger button -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Profile
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button">
   <header class="brand-header mdl-layout__header">
     <div class="mdl-layout__header-row">
