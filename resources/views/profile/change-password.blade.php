@@ -10,10 +10,15 @@
                         Change Password
                     </div>
                     <div class="card-body">
+
+                        @if (\Session::has('success'))
+                            <div class="alert alert-success">{!! \Session::get('success') !!}</div>
+                        @endif
+
                         <form method="POST" action="{{ route('change-password') }}">
                             @csrf
                             @foreach ($errors->all() as $error)
-                                <p class="text-danger">{{ $error }}</p>
+                                <div class="alert alert-danger">{{ $error }}</div>
                             @endforeach
 
                             <div class="form-group row">
