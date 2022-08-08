@@ -135,3 +135,8 @@ Route::any('avatar/{any}', function ($first, $rest = '') {
 	}
 
 });
+
+
+Route::get('my-profile', 'Profile\MyProfileController@index')->name('my-profile');
+Route::get('change-password', 'Profile\ChangePasswordController@index')->name('change-password');
+Route::post('change-password', 'Profile\ChangePasswordController@store')->name('change-password.save');

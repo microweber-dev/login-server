@@ -36,24 +36,24 @@
                         {{ Auth::user()->name }}
                     </button>
                     <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
-                        <li class="mdl-menu__item">
-                            <a href="/my-profile">
+                        <a href="/my-profile">
+                            <li class="mdl-menu__item">
                                 My Profile
-                            </a>
-                        </li>
+                            </li>
+                        </a>
+                        <a href="/change-password">
                         <li class="mdl-menu__item">
-                            <a href="/change-password">
-                                Change Password
-                            </a>
+                            Change Password
                         </li>
+                        </a>
+                        <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <li class="mdl-menu__item">
-                            <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 Logout
-                            </a>
                             <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
                         </li>
+                        </a>
                     </ul>
                 @endif
             </div>
