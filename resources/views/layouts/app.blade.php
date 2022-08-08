@@ -1,7 +1,7 @@
 @extends('layouts.skeleton')
 
 @section('body')
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white" style="border-bottom: 4px solid #eaeaea;" >
         <div class="container">
             <div class="row">
             <div class="col-md-5">
@@ -40,9 +40,13 @@
                             <a href="/my-profile">
                                 My Profile
                             </a>
+                        </li>
+                        <li class="mdl-menu__item">
                             <a href="/change-password">
                                 Change Password
                             </a>
+                        </li>
+                        <li class="mdl-menu__item">
                             <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 Logout
                             </a>
