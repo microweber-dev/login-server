@@ -76,7 +76,7 @@
                             </h4>
                         </div>
                         <div class="btn-group mb-3">
-                            <a class="btn btn-outline-success" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}" style="margin-right: 10px">Go to Website</a>
+                            <a class="btn btn-outline-success" href="{{env('EXTERNAL_WEBSITE')}}" style="margin-right: 10px">Go to Website</a>
                             <a class="btn btn-outline-primary" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}/clientarea.php">Go to Members Area</a>
                         </div>
                     </div>

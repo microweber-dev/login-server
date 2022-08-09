@@ -16,7 +16,7 @@
             <div class="col-md-5">
                 <nav class="my-2 my-md-0 mr-md-3 pt-3">
                     <a class="p-2 text-dark" href="index.php">Home</a>
-                    <a class="p-2 text-dark" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}">My Websites</a>
+                    <a class="p-2 text-dark" href="{{env('EXTERNAL_WEBSITE')}}">My Websites</a>
                     <a class="p-2 text-dark" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}/clientarea.php">Members Area</a>
                 </nav>
             </div>
