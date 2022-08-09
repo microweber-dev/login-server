@@ -13,10 +13,11 @@
                 <br/>
                 <br/>
 
-                <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
+                <p>Email: <b>{{ $email }}</b></p>
+                <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}" style="display: none">
                     <label class="control-label" for="email">{{ trans('label.email') }}</label>
 
-                    <input class="form-control @if ($errors->has('email')) is-invalid @endif" type="email" id="email" name="email" value="{{ $email or old('email') }}" autofocus/>
+                    <input class="form-control @if ($errors->has('email')) is-invalid @endif" type="hidden" id="email" name="email" value="{{ $email }}" autofocus/>
                     @if ($errors->has('email'))
                         <div class="invalid-feedback">{{ $errors->first('email') }}</div
                     @endif
