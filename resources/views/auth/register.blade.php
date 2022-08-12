@@ -4,7 +4,7 @@
 
     <div class="container text-center">
         <div class="login-holder">
- 
+
             <h2>{{ trans('all.sign_up') }}</h2>
 
             <div class="my-4">{{ trans('all.already_have_account') }} <a href="{{ url('/login') }}">{{ trans('all.login') }}</a></div>
@@ -46,6 +46,18 @@
 
                 <div style="display: none;">
                     {!! Authv::immigrationFields() !!}
+                </div>
+
+                <div class="my-4">
+                    <div class="captcha">
+                        <span>{!! app('captcha')->display() !!}</span>
+                        <!-- <button type="button" class="btn btn-success refresh-cpatcha"><i class="fa fa-refresh"></i></button> -->
+                    </div>
+
+                    @if ($errors->has('g-recaptcha-response'))
+                        <div class="text-danger">{{ $errors->first('g-recaptcha-response') }}</div>
+                    @endif
+
                 </div>
 
                 <div class="my-4">
