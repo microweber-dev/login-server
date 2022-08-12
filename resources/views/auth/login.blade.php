@@ -47,7 +47,15 @@
                     </div>
                 </div>
 
-                <div id="login_id"></div>
+                <div class="my-4">
+                    <div class="captcha">
+                        <span>{!! app('captcha')->display() !!}</span>
+                        <!-- <button type="button" class="btn btn-success refresh-cpatcha"><i class="fa fa-refresh"></i></button> -->
+                    </div>
+                    @error('g-recaptcha-response')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <div class="my-4">
                     <button type="submit" class="btn btn-primary">
@@ -57,7 +65,6 @@
             </form>
         </div>
 
-        {!!  GoogleReCaptchaV3::renderOne('login','login') !!}
 
         <div class="socials" style="margin-top:60px;">
             <p>{{ trans('all.connect_with_social') }}</p>

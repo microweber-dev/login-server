@@ -166,7 +166,7 @@ return [
          */
     	Laravel\Socialite\SocialiteServiceProvider::class,
     	Laravel\Passport\PassportServiceProvider::class,
-        TimeHunter\LaravelGoogleReCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider::class,
+        Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,6 +230,6 @@ return [
 		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 		'Passport' => Laravel\Passport\Passport::class,
 		'Authv' => App\Facades\Authv::class,
-        'GoogleReCaptchaV3'=> TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3::class
-	]
+        'Captcha' => Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider::class,
+    ]
 ];
