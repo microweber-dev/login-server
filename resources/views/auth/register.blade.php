@@ -4,7 +4,7 @@
 
     <div class="container text-center">
         <div class="login-holder">
-
+ 
             <h2>{{ trans('all.sign_up') }}</h2>
 
             <div class="my-4">{{ trans('all.already_have_account') }} <a href="{{ url('/login') }}">{{ trans('all.login') }}</a></div>
