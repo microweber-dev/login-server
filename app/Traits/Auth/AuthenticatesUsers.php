@@ -62,12 +62,6 @@ trait AuthenticatesUsers
 	 */
 	protected function attemptLogin(Request $request)
 	{
-        $validator = Validator::make($request->all());
-        
-        if ($validator->fails()) {
-            return \Redirect::to('login')->withErrors($validator);
-        }
-
 		$is_auth = $this->guard()->attempt($this->credentials($request));
 
 		if (! $is_auth) {
