@@ -33,15 +33,6 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-6">
-                        <div class="form-group text-left">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="remember" name="remember" checked="">
-                                <label class="custom-control-label" for="remember">{{ trans('all.remember_me') }}</label>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="col-6 text-right">
                         <a href="{{ url('/password/reset') }}" class="btn btn-link">{{ trans('all.forgot_password') }}</a>
                     </div>
