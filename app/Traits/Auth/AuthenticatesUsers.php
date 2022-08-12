@@ -44,7 +44,6 @@ trait AuthenticatesUsers
 	 */
 	protected function attemptLogin(Request $request)
 	{
-
         $validator = Validator::make(
             $request->all(),
             [
@@ -53,7 +52,7 @@ trait AuthenticatesUsers
         );
 
         if ($validator->fails()) {
-            return back()->withInput()->withErrors($validator);
+            return \Redirect::to('login')->withErrors($validator);
         }
 
 		$is_auth = $this->guard()->attempt($this->credentials($request));

@@ -52,9 +52,10 @@
                         <span>{!! app('captcha')->display() !!}</span>
                         <!-- <button type="button" class="btn btn-success refresh-cpatcha"><i class="fa fa-refresh"></i></button> -->
                     </div>
-                    @error('g-recaptcha-response')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+
+                    @if ($errors->has('g-recaptcha-response'))
+                        <div class="invalid-feedback">{{ $errors->first('g-recaptcha-response') }}</div>
+                    @endif
                 </div>
 
                 <div class="my-4">
