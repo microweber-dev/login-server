@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "bonecms/laravel-captcha": "^2.2",
+        "buzz/laravel-google-captcha": "^2.3",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
