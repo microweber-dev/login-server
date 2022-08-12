@@ -56,6 +56,7 @@
                     @if ($errors->has('g-recaptcha-response'))
                         <div class="invalid-feedback">{{ $errors->first('g-recaptcha-response') }}</div>
                     @endif
+
                 </div>
 
                 <div class="my-4">

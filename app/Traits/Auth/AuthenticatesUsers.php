@@ -36,6 +36,24 @@ trait AuthenticatesUsers
         return response()->json(['captcha' => captcha_img()]);
     }
 
+
+    /**
+     * Validate the user login request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+            'g-recaptcha-response' => 'required|captcha'
+        ]);
+    }
+
 	/**
 	 * Attempt to log the user into the application.
 	 *
@@ -44,13 +62,8 @@ trait AuthenticatesUsers
 	 */
 	protected function attemptLogin(Request $request)
 	{
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'g-recaptcha-response' => 'required|captcha'
-            ]
-        );
-
+        $validator = Validator::make($request->all());
+        
         if ($validator->fails()) {
             return \Redirect::to('login')->withErrors($validator);
         }
