@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Traits\Auth\SendsEmailConfirmations;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -56,6 +58,7 @@ class RegisterController extends Controller
             'password'              => 'required|min:6',
             'password_confirmation' => 'immigration:empty',
             'captcha'               => 'required|immigration:interval,4',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
     }
 
