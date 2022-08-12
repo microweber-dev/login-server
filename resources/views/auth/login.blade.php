@@ -54,7 +54,7 @@
                     </div>
 
                     @if ($errors->has('g-recaptcha-response'))
-                        <div class="invalid-feedback">{{ $errors->first('g-recaptcha-response') }}</div>
+                        <div class="text-danger">{{ $errors->first('g-recaptcha-response') }}</div>
                     @endif
 
                 </div>
