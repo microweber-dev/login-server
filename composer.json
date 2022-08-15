@@ -16,6 +16,7 @@
         "laravel/framework": "^6.0",
         "laravel/passport": "^7.5",
         "laravel/socialite": "^4.2",
+        "laravel/telescope": "*",
         "laravel/tinker": "^1.0"
     },
     "require-dev": {
