@@ -17,7 +17,8 @@
         "laravel/passport": "^7.5",
         "laravel/socialite": "^4.2",
         "laravel/telescope": "*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "lcobucci/jwt": "3.3.3"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
