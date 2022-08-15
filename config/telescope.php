@@ -5,6 +5,11 @@ use Laravel\Telescope\Watchers;
 
 return [
 
+    'allowed_emails'=>[
+        'selfworksbg@gmail.com',
+        'boksiora@gmail.com',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Telescope Domain
