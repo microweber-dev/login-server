@@ -1,4 +1,7 @@
-@import url("https://fonts.cdnfonts.com/css/milliard");
+@import url('https://fonts.cdnfonts.com/css/milliard');
+body {
+    font-family: 'Milliard', sans-serif;
+}
 
 *, *:before, *:after {
     -webkit-box-sizing: border-box;

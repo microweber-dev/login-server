@@ -17,6 +17,7 @@ class CompletionController extends Controller
         $list = [
             'name' => 'max:255',
             'username' => 'required|min:3|max:255|unique:users',
+           // 'g-recaptcha-response'  => 'required|captcha'
         ];
         if ($haveEmail) {
             $list['email'] = 'required|email|unique:users|max:255';
