@@ -23,7 +23,12 @@
                 </div>
 
                 <div class="form-group {{ $errors->has('password') ? ' has-danger' : '' }}">
-                    <label class="control-label" for="password">{{ trans('label.password') }}</label>
+                    <div class="d-flex row">
+                        <label class="col-6 text-left" for="password">{{ trans('label.password') }}</label>
+                        <span class="col-6 text-right">
+                            <a href="{{ url('/password/reset') }}">{{ trans('all.forgot_password') }}</a>
+                        </span>
+                    </div>
 
                     <input class="form-control @if ($errors->has('password')) is-invalid @endif" type="password" id="password" name="password" value="{{ old('password') }}"/>
 
@@ -32,13 +37,7 @@
                     @endif
                 </div>
 
-                <div class="row">
-                    <div class="col-12 text-right">
-                        <a href="{{ url('/password/reset') }}" class="btn btn-link">{{ trans('all.forgot_password') }}</a>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-center mt-4">
+                <div class="d-flex justify-content-center mt-2">
                     <div class="captcha">
                         <span>{!! app('captcha')->display() !!}</span>
                         <!-- <button type="button" class="btn btn-success refresh-cpatcha"><i class="fa fa-refresh"></i></button> -->
@@ -49,8 +48,8 @@
                     @endif
                 </div>
 
-                <div class="my-4 mt-5">
-                    <button type="submit" class="btn btn-primary">
+                <div class="my-4 mt-2">
+                    <button type="submit" class="btn btn-primary w-50">
                         {{ trans('button.login') }}
                     </button>
                 </div>
