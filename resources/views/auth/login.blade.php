@@ -33,12 +33,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-6 text-right">
+                    <div class="col-12 text-right">
                         <a href="{{ url('/password/reset') }}" class="btn btn-link">{{ trans('all.forgot_password') }}</a>
                     </div>
                 </div>
 
-                <div class="my-4">
+                <div class="d-flex justify-content-center mt-4">
                     <div class="captcha">
                         <span>{!! app('captcha')->display() !!}</span>
                         <!-- <button type="button" class="btn btn-success refresh-cpatcha"><i class="fa fa-refresh"></i></button> -->
@@ -47,10 +47,9 @@
                     @if ($errors->has('g-recaptcha-response'))
                         <div class="text-danger">{{ $errors->first('g-recaptcha-response') }}</div>
                     @endif
-
                 </div>
 
-                <div class="my-4">
+                <div class="my-4 mt-5">
                     <button type="submit" class="btn btn-primary">
                         {{ trans('button.login') }}
                     </button>

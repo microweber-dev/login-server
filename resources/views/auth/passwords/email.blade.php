@@ -32,7 +32,7 @@
                     @endif
                 </div>
 
-                <div class="my-4">
+                <div class="d-flex justify-content-center">
                     <div class="captcha">
                         <span>{!! app('captcha')->display() !!}</span>
                         <!-- <button type="button" class="btn btn-success refresh-cpatcha"><i class="fa fa-refresh"></i></button> -->

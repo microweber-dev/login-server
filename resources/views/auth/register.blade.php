@@ -48,7 +48,7 @@
                     {!! Authv::immigrationFields() !!}
                 </div>
 
-                <div class="my-4">
+                <div class="d-flex justify-content-center mt-5">
                     <div class="captcha">
                         <span>{!! app('captcha')->display() !!}</span>
                         <!-- <button type="button" class="btn btn-success refresh-cpatcha"><i class="fa fa-refresh"></i></button> -->
@@ -60,7 +60,7 @@
 
                 </div>
 
-                <div class="my-4">
+                <div class="my-4 mt-5">
                     <button type="submit" class="btn btn-primary">{{ trans('all.sign_up') }}</button>
                 </div>
 
