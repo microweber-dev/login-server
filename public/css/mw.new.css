@@ -3,6 +3,13 @@ body {
     font-family: 'Milliard', sans-serif;
 }
 
+a {
+    color: #2626ff;
+}
+a:hover {
+    color: #2626ff;
+}
+
 *, *:before, *:after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
