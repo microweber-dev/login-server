@@ -62,9 +62,6 @@ body,html {
 .btn.btn-outline-primary {
     border-color: #2626ff;
     color: #2626ff;
-    font-size: 15px;
-    min-width: 250px;
-    padding: 10px;
 }
 .btn.btn-outline-primary:hover {
     background: #2626ff;
