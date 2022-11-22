@@ -1,6 +1,10 @@
 {
     "My Profile": "Моя Профил",
     "Change Password": "Смяна на парола",
+    "Current Password": "Сегашна парола",
+    "New Password": "Нова парола",
+    "New Confirm Password": "Повтори новата парола",
+    "Update Password": "Обнови паролата",
     "Home": "Начало",
     "My Websites": "Моите уебсайтове",
     "Members Area": "Клиентска част",

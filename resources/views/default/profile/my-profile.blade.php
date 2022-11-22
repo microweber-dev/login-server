@@ -7,12 +7,12 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        My Profile
+                        {{__('My Profile')}}
                     </div>
                     <div class="card-body">
 
                         <h4>
-                            Welcome {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}!
+                            {{__('Welcome')}} {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}!
                         </h4>
 
                     </div>
