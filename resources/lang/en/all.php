@@ -13,6 +13,12 @@ return [
     |
     */
 
+    'data_policy_ask_to_auth'=> 'To continue, <b>MwLogin</b> will share your name, email address, language preference, and profile picture with',
+    'use_another_account'=> 'Use another account',
+    'login_into_another_account'=> 'Login into another account',
+    'choose_an_account'=> 'Choose an account',
+    'to_continue_to'=> 'to continue to',
+
     'login_desc' => 'Fill your username <br/> and password to login in your account.',
     'login_title' => 'Log In',
     'login' => 'Login',
