@@ -1,7 +1,9 @@
 {
+    "Hello!": "Здравей!",
+    "Regards": "Поздрави",
     "Reset Password Notification": "Имейл за забравена парола",
-    "You are receiving this email because we received a password reset request for your account.": "Получавате този имейл, защото получихме заявка за забравена парола за вашия акаунт.",
+    "You are receiving this email because we received a password reset request for your account.": "Получена е заявка за забравена парола за вашия акаунт.",
     "Reset Password": "Рестартирай паролата",
     "This password reset link will expire in :count minutes.": "Тази връзка за повторно задаване на парола ще изтече след :count минути.",
-    "If you did not request a password reset, no further action is required.": "Ако не сте поискали повторно задаване на парола, моля игнорирайте този имейл."
+    "If you did not request a password reset, no further action is required.": "Ако не сте изпращали заявка за задаване на парола, моля игнорирайте този имейл."
 }

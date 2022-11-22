@@ -32,7 +32,7 @@ class ForgotPasswordController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            'captcha' => 'required|captcha'
+            //'captcha' => 'required|captcha'
         ]);
     }
 }

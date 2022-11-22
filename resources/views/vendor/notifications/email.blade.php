@@ -88,9 +88,9 @@ $style = [
                                                 {{ $greeting }}
                                             @else
                                                 @if ($level == 'error')
-                                                    Whoops!
+                                                    {{__('Whoops!')}}
                                                 @else
-                                                    Hello!
+                                                  {{__('Hello!')}}
                                                 @endif
                                             @endif
                                         </h1>
@@ -140,7 +140,7 @@ $style = [
 
                                         <!-- Salutation -->
                                         <p style="{{ $style['paragraph'] }}">
-                                            Regards,<br>{{ config('app.name') }}
+                                            {{__('Regards')}}, <br>{{ config('app.name') }}
                                         </p>
 
                                         <!-- Sub Copy -->
