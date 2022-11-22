@@ -40,3 +40,10 @@ https://laravel.com/docs/7.x/passport
 ## Redirect
 The redirect urls must be the same on database and on the client
 
+
+
+## Troubleshooting
+
+### Cpanel removes headers
+
+If the headers are stripped in your cpanel, follow this guide https://forums.cpanel.net/threads/add-line-of-code-to-vhost.598267/ 
