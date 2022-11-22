@@ -14,6 +14,7 @@ return [
     */
 
     'paths' => [
+        resource_path('views/microweber_bg'),
         resource_path('views/default'),
     ],
 

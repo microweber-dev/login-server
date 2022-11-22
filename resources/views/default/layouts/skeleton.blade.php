@@ -18,6 +18,8 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="/css/mw.new.css">
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([

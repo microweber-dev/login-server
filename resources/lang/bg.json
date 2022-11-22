@@ -1,0 +1,18 @@
+{
+    "Home": "Начало",
+    "My Websites": "Моите уебсайтове",
+    "Members Area": "Клиентска част",
+    "All rights reserved.": "Всички права са запазени.",
+    "Go to Website": "Отиди в сайта",
+    "Go to Members Area": "Отиви в Клиентска част",
+    "Logout": "Изход",
+    "you are in login portal.": "влязохте успешно.",
+    "Welcome": "Здравей",
+    "Hello!": "Здравей!",
+    "Regards": "Поздрави",
+    "Reset Password Notification": "Имейл за забравена парола",
+    "You are receiving this email because we received a password reset request for your account.": "Получена е заявка за забравена парола за вашия акаунт.",
+    "Reset Password": "Рестартирай паролата",
+    "This password reset link will expire in :count minutes.": "Тази връзка за повторно задаване на парола ще изтече след :count минути.",
+    "If you did not request a password reset, no further action is required.": "Ако не сте изпращали заявка за забравена парола, моля игнорирайте този имейл."
+}

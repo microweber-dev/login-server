@@ -70,24 +70,23 @@
                     <div class="">
                         <div class="mb-5">
                             <h4>
-                                Welcome {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}},
-                                you are in login portal.
-                                <br>
+                                {{__('Welcome')}}, {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}!
+                                <br />
+                                {{__('you are in login portal.')}}
+                                <br />
                             </h4>
                         </div>
                         <div class="btn-group mb-3">
-                            <a class="btn btn-outline-success" href="{{env('EXTERNAL_WEBSITE')}}" style="margin-right: 10px">Go to Website</a>
-                            <a class="btn btn-outline-primary" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}/clientarea.php">Go to Members Area</a>
+                            <a class="btn btn-outline-success" href="{{env('EXTERNAL_WEBSITE')}}" style="margin-right: 10px">{{__('Go to Website')}}</a>
+                            <a class="btn btn-outline-primary" href="{{env('EXTERNAL_LOGIN_WHMCS_URL')}}/clientarea.php">{{__('Go to Members Area')}}</a>
                         </div>
                     </div>
-
-
 
                     <hr>
 
                     <div class="mt-3">
                         <a href="" class="btn btn-outline-danger" onclick="event.preventDefault(); document.getElementById('logout-form-main').submit();">
-                            Logout
+                            {{__('Logout')}}
                         </a>
                         <form id="logout-form-main" action="{{ url('/logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
