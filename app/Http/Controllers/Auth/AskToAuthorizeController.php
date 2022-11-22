@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class AskToAuthorizeController extends Controller
 {
@@ -24,7 +25,8 @@ class AskToAuthorizeController extends Controller
         $findClient = \Laravel\Passport\Client::where('id', $clientId)->first();
         if ($findClient) {
             if (!empty($findClient->locale)) {
-                session()->put('site_lang', $findClient->locale);
+                \App::setLocale($findClient->locale);
+                Cookie::queue('site_lang', $findClient->locale);
             }
         }
 

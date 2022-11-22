@@ -26,11 +26,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $siteLang = Cookie::get('site_lang');
-        
+
         if (!empty($siteLang)) {
             $locale = Crypt::decryptString($siteLang);
             $localeExp = explode('|', $locale);
-
             if (isset($localeExp[1])) {
                 \App::setLocale($localeExp[1]);
             }
