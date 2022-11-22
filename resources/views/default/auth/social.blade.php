@@ -1,3 +1,7 @@
+<div class="socials" style="margin-top:60px;">
+
+    <p>{{ trans('all.connect_with_social') }}</p>
+
 <ul class="idp-list">
     @if (in_array('google', config('authv.socialite')) && !empty(env('GOOGLE_CLIENT_ID')))
         <li class="idp-list-item">
@@ -49,3 +53,4 @@
         </li>
     @endif
 </ul>
+</div>
