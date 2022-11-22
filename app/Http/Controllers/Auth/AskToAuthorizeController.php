@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,6 +19,14 @@ class AskToAuthorizeController extends Controller
         $parseRedirect = parse_url($redirectUri);
         if (isset($parseRedirect['host'])) {
             $redirectDomain = $parseRedirect['host'];
+        }
+
+        $findClient = \Laravel\Passport\Client::where('id', $clientId)->first();
+        if ($findClient) {
+            if (!empty($findClient->locale)) {
+                App::setLocale($findClient->locale);
+                session()->put('locale', $findClient->locale);
+            }
         }
 
         $logoutUrl = route('logout');
