@@ -24,8 +24,7 @@ class AskToAuthorizeController extends Controller
         $findClient = \Laravel\Passport\Client::where('id', $clientId)->first();
         if ($findClient) {
             if (!empty($findClient->locale)) {
-                \App::setLocale($findClient->locale);
-                session()->put('locale', $findClient->locale);
+                session()->put('site_lang', $findClient->locale);
             }
         }
 
