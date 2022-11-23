@@ -58,7 +58,8 @@ class RegisterController extends Controller
             'password'              => 'required|min:6',
             'password_confirmation' => 'immigration:empty',
             'captcha'               => 'required|immigration:interval,4',
-            'g-recaptcha-response' => 'required|captcha'
+            'g-recaptcha-response' => 'required|captcha',
+            'terms' =>'required'
         ]);
     }
 

@@ -7,9 +7,16 @@
 
             <h2>{{ trans('all.sign_up') }}</h2>
 
-            <div class="my-4">{{ trans('all.already_have_account') }} <a href="{{ url('/login') }}">{{ trans('all.login') }}</a></div>
+            <div class="my-4">
+                <div class="socials" style="margin-top:20px;margin-bottom: 5px;">
+                    @include('auth.social')
+
+                    {{ trans('all.already_have_account') }} <a href="{{ url('/login') }}">{{ trans('all.login') }}</a>
+                </div>
+            </div>
 
             <form class="form-vertical" role="form" method="POST" action="{{ url('/register') }}">
+
                 {{ csrf_field() }}
 
                 <div class="form-group {{ $errors->has('name') ? ' has-danger' : '' }}">
@@ -48,6 +55,7 @@
                     {!! Authv::immigrationFields() !!}
                 </div>
 
+
                 <div class="mt-2">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="terms" id="flexCheckDefault">
@@ -60,7 +68,7 @@
                     @endif
                 </div>
 
-                <div class="mt-5">
+                <div class="d-flex justify-content-center mt-3">
                     <div class="captcha">
                         <span>{!! app('captcha')->display() !!}</span>
                         <!-- <button type="button" class="btn btn-success refresh-cpatcha"><i class="fa fa-refresh"></i></button> -->
@@ -72,16 +80,12 @@
 
                 </div>
 
-                <div class="my-4 mt-5">
+                <div class="my-4 mt-1">
                     <button type="submit" class="btn btn-primary">{{ trans('all.sign_up') }}</button>
                 </div>
 
             </form>
         </div>
 
-        <div class="socials" style="margin-top:60px;">
-            <p>{{ trans('all.connect_with_social_2') }}</p>
-            @include('auth.social')
-        </div>
     </div>
 @endsection
