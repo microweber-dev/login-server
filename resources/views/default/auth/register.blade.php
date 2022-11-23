@@ -60,7 +60,7 @@
                     @endif
                 </div>
 
-                <div class="mt-5">
+                <div class="d-flex justify-content-center mt-3">
                     <div class="captcha">
                         <span>{!! app('captcha')->display() !!}</span>
                         <!-- <button type="button" class="btn btn-success refresh-cpatcha"><i class="fa fa-refresh"></i></button> -->
