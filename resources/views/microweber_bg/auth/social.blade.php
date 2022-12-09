@@ -11,8 +11,8 @@
                             </div>
                         </div>
                         <span style="font-size:16px;line-height:48px;" class="abcRioButtonContents">
-                            <span id="not_signed_ingl1cvf97v998">Вход с Google</span>
-                            <span id="connectedgl1cvf97v998" style="display:none">Вход с Google</span>
+                            <span id="not_signed_ingl1cvf97v998">{{__('Login with google')}}</span>
+                            <span id="connectedgl1cvf97v998" style="display:none">{{__('Login with google')}}</span>
                         </span>
                     </div>
                 </div>
