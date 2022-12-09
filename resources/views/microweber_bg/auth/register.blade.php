@@ -60,7 +60,7 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="terms" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
-                            {{__('I accept terms and conditions')}}
+                            {{__('I agree with the')}} <a href="https://microweber.com/terms/" target="_blank">{{__('Terms and Conditions')}}</a>
                         </label>
                     </div>
                     @if ($errors->has('terms'))
