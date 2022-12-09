@@ -7,7 +7,7 @@
             <form class="form-vertical" role="form" method="POST" action="{{ route('complete-profile') }}">
                 {{ csrf_field() }}
 
-                <h2>{{ trans('all.one_more_step') }}</h2>
+                <h2>{{ trans('One more step') }}</h2>
 
                 <div class="form-group {{ $errors->has('name') ? ' has-danger' : '' }}">
                     <label class="control-label" for="name">{{ trans('label.name') }}</label>

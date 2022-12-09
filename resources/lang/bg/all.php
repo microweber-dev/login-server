@@ -24,6 +24,5 @@ return [
     'connect_with_social_2' => 'Регистрирай се със социалният си профил',
     'reset_password' => 'Възстановяване на парола',
     'already_have_account' => 'Вече имате профил?',
-    'one_more_step' => 'Последна стъпка',
 
 ];
